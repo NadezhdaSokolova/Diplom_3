@@ -1,15 +1,12 @@
 package site.stellarburgers.pageobject;
 
 public class RefreshTokenPOJO {
-
     private String token;
-
     public RefreshTokenPOJO(String token){
         this.token = token;
     }
 
     public RefreshTokenPOJO(){
-
     }
 
     public String getToken() {
@@ -19,6 +16,4 @@ public class RefreshTokenPOJO {
     public void setToken(String token) {
         this.token = token;
     }
-
-
 }

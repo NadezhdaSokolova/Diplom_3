@@ -45,11 +45,16 @@ public class PersonalAreaTest extends DriverTest{
         authorization.fillingThePasswordField(password);
 
 
-        //нажимаем на ссылку "Личный кабинет" и ищем кнопку "Выход" и нажимаем на нее
+        //нажимаем на ссылку "Личный кабинет"
 
         headPage.waitOrderButtonVisibility();
         headPage.clickOnLinkToPersonalArea();
+
+        // ждем, когда кнопка выхода станет доступной, ищем кнопку "Выход" и нажимаем на нее
+        personalArea.waitExitButtonVisibility();
+
         personalArea.clickExitButtonFromPersonalArea();
+        authorization.waitNameTopicVisibility();
 
         assertEquals("Пользователь не смог выйти из аккаунта",
                 "Вход",
@@ -81,7 +86,6 @@ public class PersonalAreaTest extends DriverTest{
         assertEquals("Пользователь не смог перейти в конструктор",
                 "Соберите бургер",
                 constructorPage.getTextFromConstructorTopic());
-
     }
 
     @Test

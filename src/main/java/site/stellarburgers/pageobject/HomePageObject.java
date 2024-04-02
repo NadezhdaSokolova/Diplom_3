@@ -1,5 +1,6 @@
 package site.stellarburgers.pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,24 +24,27 @@ public class HomePageObject extends site.stellarburgers.pageobject.DriverClass{
     }
 
 
-    //кликаем на ссылку "Личный кабинет"
+    //кликаем на ссылку 'Личный кабинет'
+    @Step("Make click on the link to personal area")
     public void clickOnLinkToPersonalArea(){
         driver.findElement(linkToPersonalArea).click();
 
     }
 
+    @Step("Make click on the button to enter in account")
     public void clickEnterInAccountButton(){
         driver.findElement(EnterInAccountButton).click();
     }
 
+    @Step("Wait until OrderButton is visible")
     public void waitOrderButtonVisibility() {
         new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.visibilityOfElementLocated(toCreatedOrderButton));
     }
 
+    @Step("Get text from button provides enter in account")
     public String getTextFromOrderButton(){
         return driver.findElement(toCreatedOrderButton).getText();
-
     }
 
 }

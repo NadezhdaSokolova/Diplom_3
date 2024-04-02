@@ -11,10 +11,11 @@ public class DriverClass {
     protected WebDriverWait wait;
 
     //  Добавили конструктор класса page object
+
     public DriverClass (WebDriver driver) {
 
         this.driver = driver; // Инициализировали в нём поле driver
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(70));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 
     }
 }

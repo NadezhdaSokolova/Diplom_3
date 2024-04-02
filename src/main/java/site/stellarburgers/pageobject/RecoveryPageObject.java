@@ -1,5 +1,6 @@
 package site.stellarburgers.pageobject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,6 +12,7 @@ public class RecoveryPageObject extends site.stellarburgers.pageobject.DriverCla
         super(driver);
     }
 
+    @Step("Make click to the link Recovery os password")
     public void clickEnterButtonFromRecoveryPasswordPage() {
         driver.findElement(enterButtonFromRecoveryPasswordPage).click();
     }

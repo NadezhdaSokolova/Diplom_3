@@ -10,12 +10,12 @@ import static org.junit.Assert.assertEquals;
 
 public class RegistrationTest extends DriverTest {
 
-    String emailReg = "TTT115@yandex.ru";
+    String emailReg = "TTN117@yandex.ru";
     String passwordReg = "111111";
     String nameReg = "Надежда";
     UserPOJO userReg = new UserPOJO(emailReg, passwordReg, nameReg);
     String incorrectPasswordReg = "00000";
-    UserPOJO userReg1 = new UserPOJO("TTT113@yandex.ru", incorrectPasswordReg, nameReg);
+    //UserPOJO userReg1 = new UserPOJO("TTT113@yandex.ru", incorrectPasswordReg, nameReg);
 
     @Test
     public void checkRegistrationSuccessfully(){
