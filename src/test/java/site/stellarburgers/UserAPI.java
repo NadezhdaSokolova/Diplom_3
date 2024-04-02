@@ -57,17 +57,7 @@ public class UserAPI {
         return response;
     }
 
-    @Step("Make patch-request to user's data changing")
-    public static Response changingDataUser(String tokenNumber, UserPOJO user){
 
-        Response response = given()
-                .header("Content-type", "application/json")
-                .auth().oauth2(tokenNumber)
-                .and()
-                .body(user)
-                .patch(USERDATA);
-        return response;
-    }
 
 
     @Step("Make request to make logout")
@@ -78,16 +68,6 @@ public class UserAPI {
                 .header("Content-type", "application/json")
                 .body(refreshToken)
                 .post(USERLOGOUT)
-                .then();
-    }
-
-    @Step("Make post-request to getRefreshTokeh after authorization")
-    public static ValidatableResponse ResponseToGetRefreshToken(UserPOJO user){
-
-        return given()
-                .header("Content-type", "application/json")
-                .body(user)
-                .post(USERLOGIN)
                 .then();
     }
 

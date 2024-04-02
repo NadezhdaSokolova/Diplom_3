@@ -14,7 +14,7 @@ public class DriverClass {
     public DriverClass (WebDriver driver) {
 
         this.driver = driver; // Инициализировали в нём поле driver
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(70));
 
     }
 }

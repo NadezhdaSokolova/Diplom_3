@@ -2,17 +2,13 @@ package site.stellarburgers;
 
 import org.junit.Test;
 import site.stellarburgers.pageobject.AuthorizationPageObject;
+import site.stellarburgers.pageobject.ConstructorPageObject;
 import site.stellarburgers.pageobject.HomePageObject;
 import site.stellarburgers.pageobject.PersonalAreaPageObject;
 
 import static org.junit.Assert.assertEquals;
 
 public class PersonalAreaTest extends DriverTest{
-
-    /// тестового пользвателя создать в before с помощью API
-
-    String name = "nadezhda0@yandex.ru";
-    String password = "111111";
 
     @Test
     public void checkPossibilityToGetPersonalArea(){
@@ -25,16 +21,97 @@ public class PersonalAreaTest extends DriverTest{
         authorization.fillingTheEmailField(email);
         authorization.fillingThePasswordField(password);
 
-        //authorization.clickTheEnterButton(); - перекрыта лругим элементом для клика
-
-        //нажимаем на ссылку "Личный кабинет" и проверяем, что есть заголовок "Профиль",
-        // который присутствует на форме авторизованного пользователя
+        //нажимаем на ссылку "Личный кабинет"
 
         headPage.waitOrderButtonVisibility();
         headPage.clickOnLinkToPersonalArea();
+
+        // проверяем, что мы в профиле как зарегистрированный пользователь
+
         assertEquals("Пользователь не прошел авторизацию",
                 "В этом разделе вы можете изменить свои персональные данные",
                 personalArea.checkInformationBlock());
+    }
+
+    @Test
+    public void checkToGoAwayFromPersonalArea(){
+        HomePageObject headPage = new HomePageObject (driver);
+        AuthorizationPageObject authorization = new AuthorizationPageObject (driver);
+        PersonalAreaPageObject personalArea= new PersonalAreaPageObject(driver);
+
+        //нажимаем на ссылку "Личный кабинет" и авторизуемся
+        headPage.clickOnLinkToPersonalArea();
+        authorization.fillingTheEmailField(email);
+        authorization.fillingThePasswordField(password);
+
+
+        //нажимаем на ссылку "Личный кабинет" и ищем кнопку "Выход" и нажимаем на нее
+
+        headPage.waitOrderButtonVisibility();
+        headPage.clickOnLinkToPersonalArea();
+        personalArea.clickExitButtonFromPersonalArea();
+
+        assertEquals("Пользователь не смог выйти из аккаунта",
+                "Вход",
+                authorization.getTextFromTopicName());
+    }
+
+    @Test
+    public void checkToMoveOnConstructorArea(){
+
+        HomePageObject headPage = new HomePageObject (driver);
+        AuthorizationPageObject authorization = new AuthorizationPageObject (driver);
+        PersonalAreaPageObject personalArea= new PersonalAreaPageObject(driver);
+        ConstructorPageObject constructorPage = new ConstructorPageObject(driver);
+
+        //нажимаем на ссылку "Личный кабинет" и авторизуемся
+        headPage.clickOnLinkToPersonalArea();
+        authorization.fillingTheEmailField(email);
+        authorization.fillingThePasswordField(password);
+
+        //нажимаем на ссылку "Личный кабинет"
+
+        headPage.waitOrderButtonVisibility();
+        headPage.clickOnLinkToPersonalArea();
+
+        //нажимаем на элемент "Конструктор"
+        constructorPage.clickToLinkToConstructor();
+
+        //проверяем наличие элемента "Соберите бургер"
+        assertEquals("Пользователь не смог перейти в конструктор",
+                "Соберите бургер",
+                constructorPage.getTextFromConstructorTopic());
 
     }
+
+    @Test
+    public void checkToMoveOnMainLogo(){
+
+        HomePageObject headPage = new HomePageObject (driver);
+        AuthorizationPageObject authorization = new AuthorizationPageObject (driver);
+        PersonalAreaPageObject personalArea= new PersonalAreaPageObject(driver);
+        ConstructorPageObject constructorPage = new ConstructorPageObject(driver);
+
+        //нажимаем на ссылку "Личный кабинет" и авторизуемся
+        headPage.clickOnLinkToPersonalArea();
+        authorization.fillingTheEmailField(email);
+        authorization.fillingThePasswordField(password);
+
+        //нажимаем на ссылку "Личный кабинет"
+
+        headPage.waitOrderButtonVisibility();
+        headPage.clickOnLinkToPersonalArea();
+
+        //нажимаем на элемент "Логотипа"
+        constructorPage.clickToStellarBurgersLogoLink();
+
+        //проверяем наличие элемента "Соберите бургер"
+        assertEquals("Пользователь не смог перейти на главную страницу",
+                "Соберите бургер",
+                constructorPage.getTextFromConstructorTopic());
+
+
+    }
+
+
 }

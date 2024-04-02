@@ -5,14 +5,9 @@ import site.stellarburgers.pageobject.AuthorizationPageObject;
 import site.stellarburgers.pageobject.HomePageObject;
 import site.stellarburgers.pageobject.RecoveryPageObject;
 import site.stellarburgers.pageobject.RegistrationPageObject;
-
 import static org.junit.Assert.assertEquals;
 
-
-
-
 public class AuthorizationTest extends DriverTest{
-
 
     @Test
     public void checkLoginViaEnterInAccountButton(){
@@ -49,7 +44,6 @@ public class AuthorizationTest extends DriverTest{
                 "Оформить заказ",
                 headPage.getTextFromOrderButton());
     }
-
 
     @Test
     public void checkLoginViaRegistrationForm(){
@@ -104,11 +98,5 @@ public class AuthorizationTest extends DriverTest{
                 "Оформить заказ",
                 headPage.getTextFromOrderButton());
     }
-
-
-
-
-
-
 
 }

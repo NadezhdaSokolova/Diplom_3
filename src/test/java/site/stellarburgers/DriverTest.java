@@ -14,8 +14,6 @@ import site.stellarburgers.pageobject.UserPOJO;
 public class DriverTest {
         protected WebDriver driver;
 
-
-
     String email = "dnNAA39@yandex.ru";
     String password = "111111";
     String name = "Надежда";
@@ -28,7 +26,6 @@ public class DriverTest {
 
             driver = getDriver();
             driver.get(HomePageObject.URL);
-
         }
         @After
         public void tearDown (){
@@ -42,11 +39,7 @@ public class DriverTest {
                     System.out.println ("Удалять нечего. Пользователь не прошел авторизацию.");
                 }
 
-
-
             driver.quit();
-
-
         }
     private WebDriver getDriver() {
 
@@ -67,7 +60,6 @@ public class DriverTest {
             default:
                 throw new IllegalArgumentException("We don't provide this browser in owr code");
         }
-
 
 
         }
