@@ -44,17 +44,21 @@ public class DriverTest {
 
         String driverType = System.getenv("BROWSER");
         if (driverType == null) {
-            driverType = "firefox";
+            driverType = "chrome";
 
         }
         switch (driverType.toLowerCase()){
             case "chrome":
-                WebDriverManager.chromedriver().setup();
+                WebDriverManager.chromedriver().clearDriverCache().setup();;
                 return new ChromeDriver();
 
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 return new FirefoxDriver();
+
+            case "yandex":
+                System.setProperty("webdriver.chrome.driver", "src/test/resources/yandexdriver");
+                return new ChromeDriver();
 
             default:
                 throw new IllegalArgumentException("We don't provide this browser in owr code");

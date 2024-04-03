@@ -39,7 +39,9 @@ public class RegistrationPageObject extends site.stellarburgers.pageobject.Drive
 
     @Step("Click the registration button to make registration")
     public void clickRegistrationButton() {
+
         driver.findElement(registrationButton).click();
+
     }
 
     @Step("Get error message when try to enter password less than 5 characters")

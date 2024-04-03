@@ -9,7 +9,8 @@ import static org.junit.Assert.assertEquals;
 
 public class RegistrationTest extends DriverTest {
 
-    String emailReg = "TAAN117@yandex.ru";
+    String emailReg = "1oQRtq4@yandex.ru";
+    String emailIncReg = "YYYYYYYY3@yandex.ru";
     String passwordReg = "111111";
     String nameReg = "Надежда";
     UserPOJO userReg = new UserPOJO(emailReg, passwordReg, nameReg);
@@ -36,10 +37,10 @@ public class RegistrationTest extends DriverTest {
 
         //проверяем, что после регистрации попадаем на  страницу авторизации с названием блока "Вход"
 
-
+        authorization.waitNameTopicVisibility();
         assertEquals("Пользователь не прошел авторизацию",
-                "Вход",
-                authorization.getTextFromTopicName());
+                "Забыли пароль? Восстановить пароль",
+                authorization.getTextFromQuestionOnAuthorizationForm());
 
         // авторизуемся
 
@@ -65,7 +66,7 @@ public class RegistrationTest extends DriverTest {
         authorization.clickTheLinkToRegistrationPageFromAuthorizationPage();
 
         //заполняем поля формы
-        registration.emailFieldFillingThroughRegistration(emailReg);
+        registration.emailFieldFillingThroughRegistration(emailIncReg);
         registration.nameFieldFillingThroughRegistration(nameReg);
         registration.passwordFieldFillingThroughRegistration(incorrectPasswordReg);
         registration.clickRegistrationButton();

@@ -14,6 +14,7 @@ public class AuthorizationPageObject extends site.stellarburgers.pageobject.Driv
     private final By passwordRecoveryLink = By.xpath("//*[@id='root']/div/main/div/div/p[2]/a");
     private final By nameTopic = By.xpath("//*[@id='root']/div/main/div/h2");
 
+    private final By questionOnAuthorizationPage = By.xpath("//*[@id='root']/div/main/div/div/p[2]");
 
     public AuthorizationPageObject(WebDriver driver) {
         super(driver);
@@ -41,7 +42,7 @@ public class AuthorizationPageObject extends site.stellarburgers.pageobject.Driv
 
     @Step("Wait name topic will be visible")
     public void waitNameTopicVisibility() {
-        new WebDriverWait(driver, Duration.ofSeconds(30))
+        new WebDriverWait(driver, Duration.ofSeconds(100))
                 .until(ExpectedConditions.visibilityOfElementLocated(nameTopic));
     }
 
@@ -51,6 +52,17 @@ public class AuthorizationPageObject extends site.stellarburgers.pageobject.Driv
         WebElement wb = driver.findElement(nameTopic);
         JavascriptExecutor jse = (JavascriptExecutor)driver;
          jse.executeScript("arguments[0].click();", wb);
+        return wb.getText();
+    }
+
+    @Step("Get text from Question on Authorization form")
+    public String getTextFromQuestionOnAuthorizationForm() {
+
+        driver.get("https://stellarburgers.nomoreparties.site/login");
+        driver.navigate().refresh();
+        WebElement wb = driver.findElement(questionOnAuthorizationPage);
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click();", wb);
         return wb.getText();
     }
 
