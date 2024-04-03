@@ -29,6 +29,7 @@ public class ConstructorPageTest extends DriverTest {
         //нажимаем на раздел "Соусы"
         constructor.clickToSouses();
 
+
         //проверяем, что открылся раздел соусов
 
         assertEquals("Раздел соусов не отобразился",

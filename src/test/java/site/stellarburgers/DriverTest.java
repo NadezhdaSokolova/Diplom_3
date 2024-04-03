@@ -30,7 +30,6 @@ public class DriverTest {
         @After
         public void tearDown (){
 
-
                 try  {
                     UserAPI.makeLogout(UserAPI.getToken(user));
                     UserAPI.deleteUser(UserAPI.getToken(user),user);
@@ -61,10 +60,6 @@ public class DriverTest {
                 throw new IllegalArgumentException("We don't provide this browser in owr code");
         }
 
-
         }
-
-
-
 
 }

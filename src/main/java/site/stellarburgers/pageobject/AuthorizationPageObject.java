@@ -12,9 +12,7 @@ public class AuthorizationPageObject extends site.stellarburgers.pageobject.Driv
     private final By authorizationPassword = By.xpath("//*[@id='root']/div/main/div/form/fieldset[2]/div/div/input");
     private final By linkToRegistrationPageFromAuthorizationPage = By.xpath("//*[@id='root']/div/main/div/div/p[1]/a");
     private final By passwordRecoveryLink = By.xpath("//*[@id='root']/div/main/div/div/p[2]/a");
-
     private final By nameTopic = By.xpath("//*[@id='root']/div/main/div/h2");
-
 
 
     public AuthorizationPageObject(WebDriver driver) {
@@ -55,9 +53,6 @@ public class AuthorizationPageObject extends site.stellarburgers.pageobject.Driv
          jse.executeScript("arguments[0].click();", wb);
         return wb.getText();
     }
-
-
-
 
 }
 

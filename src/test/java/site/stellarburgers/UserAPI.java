@@ -14,9 +14,6 @@ public class UserAPI {
     final static String USERLOGIN = "/api/auth/login";
     final static String USERLOGOUT = "api/auth/logout";
 
-
-
-
     @Step("Make post-request to create user")
     public static Response createUser(UserPOJO user) {
 
@@ -58,8 +55,6 @@ public class UserAPI {
     }
 
 
-
-
     @Step("Make request to make logout")
     public static ValidatableResponse makeLogout(String token){
         RefreshTokenPOJO refreshToken = new RefreshTokenPOJO(token);
@@ -70,7 +65,5 @@ public class UserAPI {
                 .post(USERLOGOUT)
                 .then();
     }
-
-
 
 }

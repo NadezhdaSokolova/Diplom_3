@@ -28,7 +28,10 @@ public class PersonalAreaPageObject extends site.stellarburgers.pageobject.Drive
     @Step("Get information text from personal area")
     public String checkInformationBlock() {
 
-        return driver.findElement(informationBlock).getText();
+        WebElement wb = driver.findElement(informationBlock);
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click();", wb);
+        return wb.getText();
     }
 
     @Step("Wait until button to exit from personal area will be visible")

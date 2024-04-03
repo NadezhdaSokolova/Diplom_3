@@ -26,6 +26,9 @@ public class PersonalAreaTest extends DriverTest{
         headPage.waitOrderButtonVisibility();
         headPage.clickOnLinkToPersonalArea();
 
+        // ждем загрузку странички
+        personalArea.waitExitButtonVisibility();
+
         // проверяем, что мы в профиле как зарегистрированный пользователь
 
         assertEquals("Пользователь не прошел авторизацию",
@@ -113,9 +116,6 @@ public class PersonalAreaTest extends DriverTest{
         assertEquals("Пользователь не смог перейти на главную страницу",
                 "Соберите бургер",
                 constructorPage.getTextFromConstructorTopic());
-
-
     }
-
 
 }

@@ -9,15 +9,12 @@ import org.openqa.selenium.WebElement;
 public class ConstructorPageObject extends site.stellarburgers.pageobject.DriverClass {
     private final By linkToConstructor = By.xpath("//*[@id='root']/div/header/nav/ul/li[1]/a/p");
     private final By constructorTopic = By.xpath("//*[@id='root']/div/main/section[1]/h1");
-    private final By stellarBurgersLogoLink = By.xpath("//*[@id='root']/div/header/nav/div/a/"); //*[@id="root"]/div/header/nav/div/a
+    private final By stellarBurgersLogoLink = By.xpath("//*[@id='root']/div/header/nav/div/a");
     private final By bunsTopic = By.xpath("//*[@id='root']/div/main/section[1]/div[1]/div[1]/span");
     private final By sousesTopic = By.xpath("//*[@id='root']/div/main/section[1]/div[1]/div[2]/span");
     private final By fillingsTopic = By.xpath("//*[@id='root']/div/main/section[1]/div[1]/div[3]/span");
-
     private final By bunsTextName = By.xpath("//*[@id='root']/div/main/section[1]/div[2]/h2[1]");
-
-    private final By sousesTextName = By.xpath("//*[@id='root']/div/main/section[1]/div[2]/h2[2])"); //*[@id="root"]/div/main/section[1]/div[2]/h2[2]
-
+    private final By sousesTextName = By.xpath("//*[@id='root']/div/main/section[1]/div[2]/h2[2]"); //#root > div > main > section.BurgerIngredients_ingredients__1N8v2 > div.BurgerIngredients_ingredients__menuContainer__Xu3Mo > h2:nth-child(3)
     private final By fillingsTextName = By.xpath("//*[@id='root']/div/main/section[1]/div[2]/h2[3]");
 
     public ConstructorPageObject(WebDriver driver) {
@@ -30,7 +27,6 @@ public class ConstructorPageObject extends site.stellarburgers.pageobject.Driver
         WebElement wb = driver.findElement(linkToConstructor);
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("arguments[0].click();", wb);
-
     }
 
     @Step("Get text from constructor topic")
@@ -65,6 +61,7 @@ public class ConstructorPageObject extends site.stellarburgers.pageobject.Driver
         WebElement wb = driver.findElement(sousesTopic);
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("arguments[0].click();", wb);
+
     }
 
     @Step("Make click to the Fillings in constructor")
@@ -102,6 +99,5 @@ public class ConstructorPageObject extends site.stellarburgers.pageobject.Driver
         return wb.getText();
 
     }
-
 
 }
