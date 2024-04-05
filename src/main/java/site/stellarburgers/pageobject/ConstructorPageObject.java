@@ -72,7 +72,7 @@ public class ConstructorPageObject extends site.stellarburgers.pageobject.Driver
 
         WebElement wb = driver.findElement(fillingsTopic);
         wb.click();
-        new WebDriverWait(driver, Duration.ofSeconds(100))
+        new WebDriverWait(driver, Duration.ofSeconds(200))
                 .until(ExpectedConditions.visibilityOfElementLocated(fillingsTextName));
         return wb.getAttribute("class");
     }

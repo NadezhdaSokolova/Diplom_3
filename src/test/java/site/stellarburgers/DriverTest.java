@@ -44,7 +44,7 @@ public class DriverTest {
 
         String driverType = System.getenv("BROWSER");
         if (driverType == null) {
-            driverType = "firefox";
+            driverType = "chrome";
 
         }
         switch (driverType.toLowerCase()){
