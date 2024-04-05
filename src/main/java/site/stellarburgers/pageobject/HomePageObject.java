@@ -32,7 +32,10 @@ public class HomePageObject extends site.stellarburgers.pageobject.DriverClass{
 
     @Step("Make click on the button to enter in account")
     public void clickEnterInAccountButton(){
-        driver.findElement(EnterInAccountButton).click();
+        WebElement wb = driver.findElement(EnterInAccountButton);
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click();", wb);
+
     }
 
     @Step("Wait until OrderButton is visible")

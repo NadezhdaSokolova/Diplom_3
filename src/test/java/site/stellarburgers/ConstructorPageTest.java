@@ -8,33 +8,29 @@ import static org.junit.Assert.assertEquals;
 public class ConstructorPageTest extends DriverTest {
 
     @Test
-    public void checkThatBunsOpensBunsTheme(){
+    public void checkThatClickOnBunsMakeBunsThemeIsActive(){
 
         ConstructorPageObject constructor = new ConstructorPageObject (driver);
 
-        //нажимаем на раздел "Булки"
-        constructor.clickToBun();
+        //перейдем сначало вкладку начинок
+        constructor.clickToFillingsMakeItActive();
 
-        //проверяем, что открылся раздел булок
-        assertEquals("Раздел булок не отобразился",
-                "Булки",
-                constructor.getTextFromBuns());
+
+        // теперь перейдем в раздел булок и убедимся, что он стал активным
+
+        assertEquals("Раздел булок не становится активным",
+                 "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect",
+                constructor.clickToBunMakeItActive());
     }
 
     @Test
-    public void checkThatSousesOpensSousesTheme(){
+    public void checkThatClickOnSousesMakeSouseThemeIsActive(){
 
         ConstructorPageObject constructor = new ConstructorPageObject (driver);
 
-        //нажимаем на раздел "Соусы"
-        constructor.clickToSouses();
-
-
-        //проверяем, что открылся раздел соусов
-
-        assertEquals("Раздел соусов не отобразился",
-                "Соусы",
-                constructor.getTextFromSouses());
+        assertEquals("Раздел соусов не становится активным",
+                "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect",
+                constructor.clickToSousesMakeItActive());
     }
 
     @Test
@@ -42,18 +38,9 @@ public class ConstructorPageTest extends DriverTest {
 
         ConstructorPageObject constructor = new ConstructorPageObject (driver);
 
-        //нажимаем на раздел "Начинки"
-        constructor.clickToFillings();
-
-        //проверяем, что открылся раздел начинок
-
-        assertEquals("Раздел начинок не отобразился",
-                "Начинки",
-                constructor.getTextFromFillings());
+        assertEquals("Раздел начинок не становится активным",
+                "tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect",
+                constructor.clickToFillingsMakeItActive());
     }
-
-
-
-
 
 }

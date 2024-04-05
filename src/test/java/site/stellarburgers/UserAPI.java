@@ -5,7 +5,6 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import site.stellarburgers.pageobject.RefreshTokenPOJO;
 import site.stellarburgers.pageobject.UserPOJO;
-
 import static io.restassured.RestAssured.given;
 
 public class UserAPI {
@@ -39,7 +38,6 @@ public class UserAPI {
         String token = UserAPI.authorizedUser(user).body().asString();
         String[] split = token.split(" ");
         String tokenNumber = split[1].substring(0, 171);
-        System.out.println(tokenNumber);
         return tokenNumber;
     }
 

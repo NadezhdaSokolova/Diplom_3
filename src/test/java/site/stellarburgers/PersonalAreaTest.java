@@ -69,7 +69,6 @@ public class PersonalAreaTest extends DriverTest{
 
         HomePageObject headPage = new HomePageObject (driver);
         AuthorizationPageObject authorization = new AuthorizationPageObject (driver);
-        PersonalAreaPageObject personalArea= new PersonalAreaPageObject(driver);
         ConstructorPageObject constructorPage = new ConstructorPageObject(driver);
 
         //нажимаем на ссылку "Личный кабинет" и авторизуемся
@@ -96,7 +95,6 @@ public class PersonalAreaTest extends DriverTest{
 
         HomePageObject headPage = new HomePageObject (driver);
         AuthorizationPageObject authorization = new AuthorizationPageObject (driver);
-        PersonalAreaPageObject personalArea= new PersonalAreaPageObject(driver);
         ConstructorPageObject constructorPage = new ConstructorPageObject(driver);
 
         //нажимаем на ссылку "Личный кабинет" и авторизуемся
